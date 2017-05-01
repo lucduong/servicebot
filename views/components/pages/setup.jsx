@@ -26,8 +26,8 @@ class SetupDB extends React.Component{
                     <a href="https://servicebot.io/pricing" target="_blank"> ServiceBot cloud hosted solution</a>.
                 </p>
                 <div className="row">
-                        <label className="control-label">Database Host:</label>
-                        <input className="form-control" value={this.props.state.db_host} onChange={this.props.inputChange} name="db_host" placeholder="localhost"/>
+                    <label className="control-label">Database Host:</label>
+                    <input className="form-control" value={this.props.state.db_host} onChange={this.props.inputChange} name="db_host" placeholder="localhost"/>
                 </div>
                 <div className="row">
                     <label className="control-label">Database Name:</label>
@@ -185,7 +185,7 @@ class Setup extends React.Component {
         Fetcher("/api/v1/check-stripe", "POST", this.state.form)
             .then(function(result){
                 if(!result.error){
-                        callback();
+                    callback();
                 }
                 else{
                     //todo: make fields red
@@ -212,7 +212,7 @@ class Setup extends React.Component {
         let breadcrumbs = [{name:'Welcome to ServiceBot', link:'/setup'}];
 
         const steps = [
-            {name: 'Database Connection', onNext : this.checkDB, component: <SetupDB state={this.state.form} inputChange={this.handleInputChange}/>},
+            // {name: 'Database Connection', onNext : this.checkDB, component: <SetupDB state={this.state.form} inputChange={this.handleInputChange}/>},
             {name: 'Stripe API Keys', onNext: this.checkStripe, component: <SetupStripe state={this.state.form} inputChange={this.handleInputChange} />},
             {name: 'Configuration', component: <SetupAdmin state={this.state.form} inputChange={this.handleInputChange}/>}
         ];
@@ -220,26 +220,26 @@ class Setup extends React.Component {
         if(this.state.loading){
             return ( <Load/> );
         }else{
-        return(
+            return(
 
-            <div style={{backgroundColor: '#30468a', minHeight: 100+'vh'}}>
-                <div className="installation">
-                    <div className="logo-installation">
-                        <img src="/assets/logos/logo-installation.png" />
+                <div style={{backgroundColor: '#30468a', minHeight: 100+'vh'}}>
+                    <div className="installation">
+                        <div className="logo-installation">
+                            <img src="/assets/logos/logo-installation.png" />
+                        </div>
+                        <h1>Automated Installation</h1>
+                        <Content>
+                            <Alert stack={{limit: 3}} position='bottom'/>
+                            <form>
+                                {/*{JSON.stringify(this.state.form)}*/}
+                                <Multistep handleSubmit={this.handleSubmit} steps={steps}/>
+                                <br/>
+                            </form>
+                        </Content>
                     </div>
-                    <h1>Automated Installation</h1>
-                    <Content>
-                        <Alert stack={{limit: 3}} position='bottom'/>
-                        <form>
-                            {/*{JSON.stringify(this.state.form)}*/}
-                            <Multistep handleSubmit={this.handleSubmit} steps={steps}/>
-                            <br/>
-                        </form>
-                    </Content>
                 </div>
-            </div>
-        );
-    }}
+            );
+        }}
 }
 
 export default Setup;

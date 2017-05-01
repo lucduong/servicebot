@@ -11,5 +11,5 @@ COPY . /usr/src/app
 #EXPOSE 3001
 
 
-CMD [ "npm", "run-script", "fullStart" ]
+CMD [ "npm", "run-script", "start" ]
 
