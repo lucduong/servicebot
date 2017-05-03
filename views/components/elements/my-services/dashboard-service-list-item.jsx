@@ -100,7 +100,7 @@ class DashboardServiceListItem extends React.Component {
             let myService = self.props.service;
 
             let getPrice = ()=>{
-                let serType = myService;
+                let serType = myService.type;
                 console.log("the ser type", serType);
                 if (serType == "subscription"){
                     return (
@@ -114,6 +114,7 @@ class DashboardServiceListItem extends React.Component {
                 }else if (serType == "custom"){
                     return (<span/>);
                 }else{
+                    console.log("here", serType);
                     return (<span><Price value={myService.payment_plan.amount}/></span>)
                 }
             };
@@ -126,7 +127,7 @@ class DashboardServiceListItem extends React.Component {
                             <div className="xaas-data xaas-category"><img className="xaas-service-icon" src="assets/service-icons/dark/aws.png"/></div>
                             <div className="xaas-data xaas-service"><h5>{name}</h5></div>
                             <div className="xaas-data xaas-price"><h5>{getPrice()}</h5></div>
-                            <div className="xaas-data xaas-interval"><h5>{interval}</h5></div>
+                            {/*<div className="xaas-data xaas-interval"><h5>{interval}</h5></div>*/}
                             <div className="xaas-data xaas-action">
                                 {/*<buttom to="" className="btn btn-flat btn-info btn-rounded btn-sm">View <i className="fa fa-expand"/></buttom>*/}
                                 {status == "requested" &&
