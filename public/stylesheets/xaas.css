@@ -531,6 +531,22 @@ ul.nav.navbar-nav {
 
 .not-found-404 h1 {font-size: 13em;}
 
+
+/* .badge */
+.text-badge{
+    border-radius: 10px;
+    font-size: 10px;
+    padding: 2px 6px;
+    position: absolute;
+    top: 18px;
+    margin-left: 6px;
+}
+.text-badge.news{
+    background-color: #ff015a;
+    color: white;
+    font-weight: 600;
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
