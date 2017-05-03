@@ -25,7 +25,7 @@ class SearchServiceBar extends React.Component {
             <div className="featured-area">
                 <div className="side-columns col-xs-1 col-sm-2 col-md-3"></div>
                 <div id="middle-column" className="col-xs-10 col-sm-8 col-md-6">
-                    <h1 className="text-center uppercase white p-b-40">Get started!</h1>
+                    <h1 className="text-center uppercase white p-b-40">Service Shop<span className="text-badge news">Demo</span></h1>
                     <form id="search-service-form" className="search">
                         {(this.props.searchValue == "" || this.props.searchValue == null) &&
                             <label id="search-service-label" className="flat-input flat-lg flat-bolder">Search For
