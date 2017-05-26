@@ -185,7 +185,7 @@ class ServiceListItem extends React.Component {
                         <div className="card-body" ref="myCardBody">
                             <p>{serviceDescription}</p>
                             {this.state.opened &&
-                                <div className="service-details" dangerouslySetInnerHTML={this.createMarkup(serviceDetails)} ref="myCardDetails"/>
+                            <div className="service-details" dangerouslySetInnerHTML={this.createMarkup(serviceDetails)} ref="myCardDetails"/>
                             }
                         </div>
                         <div className="card-footer">

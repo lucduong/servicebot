@@ -10,8 +10,8 @@ class DashboardServiceListItem extends React.Component {
     constructor(props){
         super(props);
         this.state = {  approveModal : false,
-                        cancelModal: false,
-                        undoCancelModal: false};
+            cancelModal: false,
+            undoCancelModal: false};
 
         this.mapIntervalString = this.mapIntervalString.bind(this);
         this.handleApprove = this.handleApprove.bind(this);
@@ -131,16 +131,16 @@ class DashboardServiceListItem extends React.Component {
                             <div className="xaas-data xaas-action">
                                 {/*<buttom to="" className="btn btn-flat btn-info btn-rounded btn-sm">View <i className="fa fa-expand"/></buttom>*/}
                                 {status == "requested" &&
-                                    <buttom className="btn btn-outline btn-white btn-rounded btn-sm" onClick={self.handleApprove}>Approve</buttom>
+                                <buttom className="btn btn-outline btn-white btn-rounded btn-sm" onClick={self.handleApprove}>Approve</buttom>
                                 }
                                 {status == "waiting" &&
-                                    <buttom to="" className="btn btn-outline btn-white btn-rounded btn-sm">Pay All</buttom>
+                                <buttom to="" className="btn btn-outline btn-white btn-rounded btn-sm">Pay All</buttom>
                                 }
                                 {status == "running" &&
-                                    <buttom to="" className="btn btn-default btn-rounded btn-sm" onClick={self.handleCancel}>Cancel Request</buttom>
+                                <buttom to="" className="btn btn-default btn-rounded btn-sm" onClick={self.handleCancel}>Cancel Request</buttom>
                                 }
                                 {status == "waiting_cancellation" &&
-                                    <buttom to="" className="btn btn-default btn-rounded btn-sm" onClick={self.handleUndoCancel}>Undo Cancel Request</buttom>
+                                <buttom to="" className="btn btn-default btn-rounded btn-sm" onClick={self.handleUndoCancel}>Undo Cancel Request</buttom>
                                 }
                             </div>
                         </div>
