@@ -1,7 +1,12 @@
-# ServiceBot
 
-ServiceBot is an open source platform to manage the complexities involved with providing
-services.
+<p align="center">
+<a href="https://servicebot.io">
+<img width="250" heigth="250" src="https://servicebot.io/images/servicebot-beta-logo.png">
+</a>
+</p>
+
+___
+<p align="center">ServiceBot is a platform for a business to sell their services and automate the administrative tasks such as billing and invoicing.</p>
 
 ## Demo
 **User Login Credentials:**
@@ -37,7 +42,7 @@ ServiceBot is **open source** and accepts contributions from the public
 
 Before contributing to ServiceBot:
 
-1. Read and sign the [**ServiceBot Contribution License Agreement**](http://servicebot.io/cla).
+1. Read and sign the [**ServiceBot Contribution License Agreement**](https://goo.gl/forms/N7SWawNxnoDXOR5A3).
 2. Not sure what to work on? Check the open issue or pop into [gitter] and ask!
 
 We look forward to working with you!
