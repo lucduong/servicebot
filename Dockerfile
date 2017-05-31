@@ -8,8 +8,8 @@ WORKDIR /usr/src/app
 COPY package.json /usr/src/app/
 RUN npm install
 COPY . /usr/src/app
-#EXPOSE 3001
+RUN npm build
 
 
-CMD [ "npm", "run-script", "fullStart" ]
+CMD [ "npm", "run-script", "start" ]
 
