@@ -260,7 +260,8 @@ module.exports = function (initConfig) {
                 table.string('name');
                 table.text('description', 'longtext');
                 table.string('subscription_id');
-                table.enu('status', ['running', 'requested', 'in_progress', 'waiting_cancellation', 'missing_payment', 'cancelled']).defaultTo('missing_payment');
+                table.enu('status', ['running', 'requested', 'in_progress', 'waiting_cancellation', 'missing_payment', 'cancelled', 'completed']).defaultTo('missing_payment');
+                table.enu('type', ['subscription', 'one_time', 'custom']).defaultTo('subscription');
                 table.timestamps(true, true);
                 console.log("Created 'service_instances' table.");
 
@@ -500,7 +501,7 @@ module.exports = function (initConfig) {
                                 //assign permissions to roles
                                 resolve(Promise.all(role_objects.map(assignPermissionPromise(initConfig, permission_objects, initialRoleMap))).then(function (roles) {
                                     //IMPORTANT: uncomment the line below if you want the installation with the test demo data.
-                                    return require("../tests/demo");
+                                    // return require("../tests/demo");
                                 }));
                             });
                         });

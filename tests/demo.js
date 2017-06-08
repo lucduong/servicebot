@@ -79,7 +79,8 @@ var demo_service_template = [
         currency: "USD",
         interval: "day",
         interval_count: 1,
-        subscription_prorate: false
+        subscription_prorate: false,
+        type:'one_time'
     },
     {
         created_by: 1,
@@ -95,7 +96,8 @@ var demo_service_template = [
         currency: "USD",
         interval: "day",
         interval_count: 1,
-        subscription_prorate: false
+        subscription_prorate: false,
+        type:'one_time'
     },
     {
         category_id: 1,
@@ -111,7 +113,8 @@ var demo_service_template = [
         currency: "USD",
         interval: "day",
         interval_count: 1,
-        subscription_prorate: false
+        subscription_prorate: false,
+        type:'one_time'
     },
     {
         category_id: 1,
@@ -127,7 +130,8 @@ var demo_service_template = [
         currency: "USD",
         interval: "day",
         interval_count: null,
-        subscription_prorate: false
+        subscription_prorate: false,
+        type:'custom'
     },
     {
         created_by: 1,
@@ -143,7 +147,8 @@ var demo_service_template = [
         currency: "USD",
         interval: "month",
         interval_count: 12,
-        subscription_prorate: true
+        subscription_prorate: true,
+        type:'subscription'
     },
     {
         created_by: 1,
@@ -159,7 +164,8 @@ var demo_service_template = [
         currency: "USD",
         interval: "month",
         interval_count: 12,
-        subscription_prorate: true
+        subscription_prorate: true,
+        type:'subscription'
     },
     {
         created_by: 1,
@@ -175,7 +181,8 @@ var demo_service_template = [
         currency: "USD",
         interval: "year",
         interval_count: 1,
-        subscription_prorate: true
+        subscription_prorate: true,
+        type:'subscription'
     },
     {
         created_by: 1,
@@ -191,7 +198,8 @@ var demo_service_template = [
         currency: "USD",
         interval: "day",
         interval_count: 1,
-        subscription_prorate: false
+        subscription_prorate: false,
+        type:'one_time'
     },
     {
         category_id: 4,
@@ -207,7 +215,8 @@ var demo_service_template = [
         currency: "USD",
         interval: "month",
         interval_count: 12,
-        subscription_prorate: true
+        subscription_prorate: true,
+        type:'subscription'
     },
     {
         category_id: 4,
@@ -223,7 +232,8 @@ var demo_service_template = [
         currency: "USD",
         interval: "month",
         interval_count: 12,
-        subscription_prorate: true
+        subscription_prorate: true,
+        type:'subscription'
     }
 ];
 
@@ -341,6 +351,7 @@ var demo_service_instance = [
         description: "SSL for your domain <hr> null",
         subscription_id: null,
         status: "requested",
+        type:'subscription',
         created_at: "2017-04-21T23:23:56.384Z",
         updated_at: "2017-04-21T23:23:57.179Z",
     },
@@ -366,6 +377,7 @@ var demo_service_instance = [
         description: "Cloud hosting for small websites <hr> <p>We host your website and promise uptime and x time before response</p>",
         subscription_id: "sub_AWDZrTVCqJntJI",
         status: "running",
+        type:'subscription',
         created_at: "2017-04-21T23:25:23.358Z",
         updated_at: "2017-04-21T23:25:25.095Z",
     },
@@ -391,6 +403,7 @@ var demo_service_instance = [
         description: "SSL for your domain <hr> null",
         subscription_id: "sub_AWDZNVLJ3za12p",
         status: "running",
+        type:'subscription',
         created_at: "2017-04-21T23:26:17.224Z",
         updated_at: "2017-04-21T23:26:18.940Z",
     },
@@ -416,6 +429,7 @@ var demo_service_instance = [
         description: "SSL for your domain <hr> ",
         subscription_id: "sub_AWDfE8XE5E9Yki",
         status: "running",
+        type:'subscription',
         created_at: "2017-04-21T23:32:13.842Z",
         updated_at: "2017-04-21T23:32:15.487Z",
     },
@@ -441,6 +455,7 @@ var demo_service_instance = [
         description: "Development of custom small CMS managed website (less than 10 pages) <hr> ",
         subscription_id: "sub_AWTD4lx48k63zB",
         status: "running",
+        type:'one_time',
         created_at: "2017-04-22T15:36:02.214Z",
         updated_at: "2017-04-22T15:36:04.043Z",
     }
@@ -953,42 +968,6 @@ module.exports = new Promise(function (resolve_top, reject_top) {
     });
 
 });
-
-/*
-
-
- User.batchCreate(demo_users, function (result) {
- console.log(result);
- ServiceCategory.batchCreate(demo_service_category, function (result) {
- console.log(result);
- ServiceTemplate.batchCreate(demo_service_template, function (result) {
- console.log(result);
- ServiceTemplateProperty.batchCreate(demo_service_template_properties, function (result) {
- console.log(result);
- //TODO call instance request here
- ServiceInstance.batchCreate(demo_service_instance, function (result) {
- console.log(result);
- //TODO Wont have to do this one
- ServiceInstanceProperty.batchCreate(demo_service_instance_properties, function (result) {
- console.log(result);
- Invoice.batchCreate(demo_invoices, function (result){
- console.log(result);
- Transaction.batchCreate(demo_transactions, function (result) {
- console.log(result);
- InvoiceLine.batchCreate(demo_invoice_lines, function (result) {
- console.log(result);
- resolve(result);
- });
- });
- });
- });
- });
- });
- });
- });
- });
- */
-
 
 //user
 //service template

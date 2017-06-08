@@ -1,7 +1,27 @@
-# ServiceBot
 
-ServiceBot is an open source platform to manage the complexities involved with providing
-services. 
+<p align="center">
+<a href="https://servicebot.io">
+<img width="250" heigth="250" src="https://servicebot.io/images/servicebot-beta-logo.png">
+</a>
+</p>
+
+___
+<p align="center">ServiceBot is a platform for a business to sell their services and automate the administrative tasks such as billing and invoicing.</p>
+
+## Demo
+**User Login Credentials:**
+
+Email: customer@servicebot.io
+
+Password: demo
+
+**Admin Login Credentials:**
+
+Email: admin@servicebot.io
+
+Password: demo
+
+[![alt text](https://servicebot.io/servicebot.png)](https://demo.servicebot.cloud)
 
 ## Installation
 
@@ -22,7 +42,7 @@ ServiceBot is **open source** and accepts contributions from the public
 
 Before contributing to ServiceBot:
 
-1. Read and sign the [**ServiceBot Contribution License Agreement**](http://servicebot.io/cla).
+1. Read and sign the [**ServiceBot Contribution License Agreement**](https://goo.gl/forms/N7SWawNxnoDXOR5A3).
 2. Not sure what to work on? Check the open issue or pop into [gitter] and ask!
 
 We look forward to working with you!
@@ -49,7 +69,6 @@ This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
-
 
 
 You should have received a copy of the GNU General Public License
