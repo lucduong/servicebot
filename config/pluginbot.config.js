@@ -28,21 +28,21 @@ module.exports = async function(){
     if(!envExists()){
         plugins = basePlugins();
     }else{
-        console.log("environment file detected");
         //bring in environment variables
 
         let envPath = path.resolve(__dirname, '../env/.env');
         dotenv.config({path: envPath});
 
 
-        let db = require('knex')({
-            client: 'pg',
-            connection: getDBConf(),
-            pool: { min: 0, max: 10 }
+        // let db = require('knex')({
+        //     client: 'pg',
+        //     connection: getDBConf(),
+        //     pool: { min: 0, max: 10 }
+        //
+        // });
 
-        });
-
-        plugins = await getEnabledPlugins(db);
+        // plugins = await getEnabledPlugins(db);
+        plugins = basePlugins();
     }
 
 
@@ -50,31 +50,31 @@ module.exports = async function(){
         plugins : plugins,
 
 
-        //install function gets called whenever Pluginbot.prototype.install gets called passing available services
-        install: function* (services, pluginName, pluginInstall) {
-            let db = yield consume(services.database);
-            let trx = function () {
-                db.transaction(async (trx) => {
-                    await trx(PLUGIN_TABLE).insert({
-                        name: pluginName,
-                        path: path.resolve(PLUGIN_DIRECTORY, pluginName),
-                        enabled: false
-                    });
-                });
-            };
-            yield call(trx);
-            if (pluginInstall) {
-                yield call(pluginInstall);
-            }
-        },
-        //todo : should enable be in charge of running the plugin like install is in charge of installs?
-        enable: function* (services, pluginName) {
-            let db = yield consume(services.database);
-            let update = function () {
-                return db(PLUGIN_TABLE).where("name", pluginName).update("enabled", true);
-            }
-            let res = yield call(update);
-        },
+        // //install function gets called whenever Pluginbot.prototype.install gets called passing available services
+        // install: function* (services, pluginName, pluginInstall) {
+        //     let db = yield consume(services.database);
+        //     let trx = function () {
+        //         db.transaction(async (trx) => {
+        //             await trx(PLUGIN_TABLE).insert({
+        //                 name: pluginName,
+        //                 path: path.resolve(PLUGIN_DIRECTORY, pluginName),
+        //                 enabled: false
+        //             });
+        //         });
+        //     };
+        //     yield call(trx);
+        //     if (pluginInstall) {
+        //         yield call(pluginInstall);
+        //     }
+        // },
+        // //todo : should enable be in charge of running the plugin like install is in charge of installs?
+        // enable: function* (services, pluginName) {
+        //     let db = yield consume(services.database);
+        //     let update = function () {
+        //         return db(PLUGIN_TABLE).where("name", pluginName).update("enabled", true);
+        //     }
+        //     let res = yield call(update);
+        // },
     }
 
 };
@@ -89,7 +89,6 @@ let envExists = function() {
 
 let getEnabledPlugins = async function(db){
     let pluginTableExists = await db.schema.hasTable(PLUGIN_TABLE);
-    console.log("plugin table exists: ", pluginTableExists);
     return  await (pluginTableExists ? db(PLUGIN_TABLE).where("enabled", true) : basePlugins());
 
 }
