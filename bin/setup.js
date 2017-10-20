@@ -3,7 +3,7 @@ let fs = require("fs")
 let crypto = require("crypto")
 let setup = function(config, callback){
     crypto.randomBytes(30, function (err, buffer) {
-        const secret = crypto.randomBytes(30).toString("hex");
+        const secret = crypto.randomBytes(32).toString("hex");
 
         let salt = buffer.toString("hex");
 
@@ -29,14 +29,12 @@ SECRET_KEY=${secret}`;
         fs.writeFile(envPath, env, {flag: 'wx'}, function (err) {
             if (err) {
 
-                console.log("env exists")
+                console.error("env exists")
 
             } else {
                 require('dotenv').config({path: envPath});
                 require("../config/db").raw('select 1+1 as result').then(function () {
                     callback(env);
-
-                    console.log("env  generated, starting app ");
                 }).catch(function(err){
                     fs.unlink(envPath);
 
