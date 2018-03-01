@@ -52,12 +52,12 @@ let reset = function(callback){
     }
     //todo: don't do this.. but the pool b draining
         setTimeout(function(){
-            require("../config/db").destroy().then(function(res){
+            require("../../config/db").destroy().then(function(res){
                 console.log("POOL!", res);
                 Object.keys(require.cache).forEach(function(key) { delete require.cache[key] });
                 knex.raw('DROP DATABASE IF EXISTS testing')
                     .then(() => knex.raw('CREATE DATABASE testing'))
-                    .then(() => require("../app")(initConfig))
+                    .then(() => require("../../app")(initConfig))
                     .then(function(newApp){
                         server = newApp.listen("3001");
                         enableDestroy(server);
