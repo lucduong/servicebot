@@ -8,3 +8,4 @@ npm-debug.log*
 env
 package-lock.json
 deploy_rsa.pub
+dist/*.tar.gz
