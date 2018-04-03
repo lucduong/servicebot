@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ZipFilesPlugin = require('webpack-zip-files-plugin');
 
 var BUILD_DIR = path.resolve(__dirname, 'public/build');
 var APP_DIR = path.resolve(__dirname, 'views');
@@ -126,13 +127,30 @@ var config = async function () {
             new webpack.HotModuleReplacementPlugin(),
 
 
-            // new UglifyJsPlugin(),
-            // new webpack.DefinePlugin({
-            //     'process.env': {
-            //         NODE_ENV: JSON.stringify('production')
-            //     }
-            // })
+            new UglifyJsPlugin(),
+            new webpack.DefinePlugin({
+                'process.env': {
+                    NODE_ENV: JSON.stringify('production')
+                }
+            }),
 
+            new ZipFilesPlugin({
+                entries: [
+                  { src: path.join(__dirname, 'api'), dist: 'api' },
+                  { src: path.join(__dirname, 'bin'), dist: 'bin' },
+                  { src: path.join(__dirname, 'config'), dist: 'config' },
+                  { src: path.join(__dirname, 'lib'), dist: 'lib' },
+                  { src: path.join(__dirname, 'middleware'), dist: 'middleware' },
+                  { src: path.join(__dirname, 'models'), dist: 'models' },
+                  { src: path.join(__dirname, 'public'), dist: 'public' },
+                  { src: path.join(__dirname, 'plugins'), dist: 'plugins' },
+                  { src: path.join(__dirname, 'uploads'), dist: 'uploads' },
+                  { src: path.join(__dirname, 'app.js'), dist: 'app.js' },
+                  { src: path.join(__dirname, 'package.json'), dist: 'package.jsson' },
+                ],
+                output: path.join(__dirname, './dist/servicebot'),
+                format: 'tar',
+              }),
         ]
     }
     return [ app, plugins]
