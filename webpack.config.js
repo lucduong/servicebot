@@ -34,8 +34,7 @@ var config = async function () {
                     {
                         test: /\.jsx?/,
                         loader: 'babel-loader',
-                        include: [PLUGIN_DIR, APP_DIR],
-
+                        include: [PLUGIN_DIR, APP_DIR]
 
                     },
                     {
@@ -102,8 +101,10 @@ var config = async function () {
             loaders: [
                 {
                     test: /\.jsx?/,
-                    include : [APP_DIR, APP_DIR2 + "/node_modules\/pluginbot-react", APP_DIR2 + "/node_modules\/pluginbot"],
-                    loader: 'babel-loader'
+                    // include : [APP_DIR, APP_DIR2 + "/node_modules\/pluginbot-react", APP_DIR2 + "/node_modules\/pluginbot"],
+                    include: [APP_DIR],
+                    loader: 'babel-loader',
+                    exclude: /node_modules/
                 },
                 {
                     test: /\.css$/,
@@ -115,6 +116,11 @@ var config = async function () {
                 }
 
             ]
+        },
+        resolve: {
+            alias: {
+                'xpluginbot-react': path.resolve(__dirname, 'plugins', 'pluginbot-react')
+            }
         },
         plugins: [
             new webpack.HotModuleReplacementPlugin(),

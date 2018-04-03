@@ -24,7 +24,7 @@ import {isAuthorized} from "./components/utilities/authorizer.jsx";
 import Fetcher from "./components/utilities/fetcher.jsx";
 import {reducer as formReducer} from 'redux-form'
 import logger from 'redux-logger'
-import PluginbotClient from "pluginbot-react";
+import PluginbotClient from "xpluginbot-react";
 import {syncHistoryWithStore, routerReducer} from 'react-router-redux'
 
 let DELETETHISCODELATERUID = cookie.load("uid");
